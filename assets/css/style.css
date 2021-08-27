@@ -1,0 +1,93 @@
+header {
+    text-align: center;
+}
+
+
+
+.header {
+    font-size: 1.8rem;
+    background-color: #ccc;
+    padding: 16px;
+}
+
+.header__title {
+    font-size: 5.8rem;
+    letter-spacing: 0.5rem;
+    color: orange;
+}
+
+.header__info {
+    color: #333;
+}
+
+.number-countries {
+
+}
+
+.nav {
+    padding: 1.6rem 0 0.8rem;
+    background-color: #ddd;
+}
+
+.nav__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nav__btn-link {
+    text-decoration: none;
+    display: block;
+    padding: 16px;
+    color: #333;
+    font-size: 1.4rem;
+    background-color: orange;
+    margin: 1rem;
+    border-radius: 0.6rem;
+}
+
+.nav__btn-link:hover {
+    opacity: 0.8;
+}
+
+.nav__title {
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.countries {
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 1.6rem;
+}
+
+.countries__name,
+.countries__data-amount  {
+    color: #333;
+    font-size: 2.4rem;
+    flex: 1.5;
+    text-align: center;
+}
+.countries__chart-wrapper {
+    flex: 2;
+}
+.countries__chart {
+    height: 3.2rem;
+    background-color: orange;
+    position: relative;
+    animation: fadeIn 1000ms linear;
+}
+@keyframes fadeIn {
+    0% {
+        width: 0;
+    }
+    100% {
+        
+    }
+}
+
+

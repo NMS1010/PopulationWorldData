@@ -1,6 +1,6 @@
 var $ = document.querySelector.bind(document);
 var $$ = document.querySelectorAll.bind(document);
-const countriesAPI = 'https://restcountries.eu/rest/v2/all'
+const countriesAPI = 'https://restcountries.com/v3.1/all'
 
 var maxCountry = 10;
 var maxLanguage = 10;
@@ -53,7 +53,7 @@ const app = {
             return index < maxCountry;
         }).map((country, index) => {
             return `<div class="countries">
-            <div class="countries__name" >${country.name}</div>
+            <div class="countries__name" >${country.name.common}</div>
             <div class="countries__chart-wrapper">
                 <div class="countries__chart" style = "width: ${100 * country.population / totalPopulation}%" "></div>
             </div>
@@ -79,9 +79,12 @@ const app = {
     },
     getLanguages(countriesData) {
         let set = new Set();
-        countriesData.forEach((value, key) => {
-            value.languages.forEach((language) => set.add(language.name));
+        countriesData.forEach((value) => {
+            for(var val in value.languages){
+                set.add(value.languages[val]);
+            }
         })
+        
         return set;
     },
     renderLanguages(countriesData) {
@@ -91,11 +94,10 @@ const app = {
         languages.forEach((language) => {
             let count = 0;
             countriesData.forEach((data) => {
-                let num = data.languages.find((value) => {
-                    return value.name === language;
-                })
-                if(num) {
-                    count++;
+                for(var val in data.languages){
+                    if(data.languages[val] == language){
+                        count++;
+                    }
                 }
             })
             arr.push([language, count]);
